@@ -24,6 +24,7 @@ class WhatsNewFeature {
     required String buttonText,
     bool showWhatsNewOnFirstInstall = false,
     Color buttonColor = Colors.amber,
+    Color buttonTextColor = Colors.black,
     Duration delay = const Duration(seconds: 1),
   }) async {
     // do not navigate to whats new page if [showWhatsNew] false
@@ -56,6 +57,7 @@ class WhatsNewFeature {
           headingText,
           buttonText,
           buttonColor,
+          buttonTextColor,
         );
       });
     }
@@ -68,12 +70,14 @@ class WhatsNewFeature {
     String headingText,
     String buttonText,
     Color? buttonColor,
+      Color? buttonTextColor,
   ) {
     Navigator.push<void>(
       context,
       MaterialPageRoute(
         builder: (context) => WhatsNewFeaturePage(
           buttonColor: buttonColor,
+          buttonTextColor: buttonTextColor,
           buttonText: buttonText,
           headingText: headingText,
           features: features,
