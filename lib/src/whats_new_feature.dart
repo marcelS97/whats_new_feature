@@ -20,6 +20,8 @@ class WhatsNewFeature {
     required bool showWhatsNew,
     Function()? navigatedToWhatsNewPage,
     required List<WhatsNewFeatureTile> features,
+    required String headingText,
+    required String buttonText,
     bool showWhatsNewOnFirstInstall = false,
     Color buttonColor = Colors.amber,
     Duration delay = const Duration(seconds: 1),
@@ -45,13 +47,14 @@ class WhatsNewFeature {
 
     if (currentAppVersion != previousAppVersion) {
       await prefs.setString(installedAppVersionKey, currentAppVersion);
-      print("App-Version: " + currentAppVersion);
       navigatedToWhatsNewPage?.call();
       Future.delayed(delay, () {
         _navigateToWhatsNewPage(
           context,
           features,
           packageInfo.appName,
+          headingText,
+          buttonText,
           buttonColor,
         );
       });
@@ -62,6 +65,8 @@ class WhatsNewFeature {
     BuildContext context,
     List<WhatsNewFeatureTile> features,
     String appName,
+    String headingText,
+    String buttonText,
     Color? buttonColor,
   ) {
     Navigator.push<void>(
@@ -69,8 +74,8 @@ class WhatsNewFeature {
       MaterialPageRoute(
         builder: (context) => WhatsNewFeaturePage(
           buttonColor: buttonColor,
-          buttonText: 'Continue',
-          headingText: 'Whats new',
+          buttonText: buttonText,
+          headingText: headingText,
           features: features,
           appName: appName,
         ),

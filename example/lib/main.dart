@@ -40,6 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
     await const WhatsNewFeature().showWhatsNew(
       context,
       showWhatsNew: true,
+      headingText: "Whats new",
+      buttonText: "Continue...",
       showWhatsNewOnFirstInstall: true,
       features: [
         WhatsNewFeatureTile(
