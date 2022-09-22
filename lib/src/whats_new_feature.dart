@@ -48,7 +48,7 @@ class WhatsNewFeature {
     /// do not show whats new feature page on the first install
     ///
     /// on the first install, [previousAppVersion] will always be empty
-    if (previousAppVersion.isEmpty) {
+    if (previousAppVersion.isEmpty && !showWhatsNewOnFirstInstall) {
       await prefs.setString(installedAppVersionKey, currentAppVersion);
       return;
     }
