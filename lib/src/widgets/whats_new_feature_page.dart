@@ -8,7 +8,9 @@ class WhatsNewFeaturePage extends StatelessWidget {
     Key? key,
     required this.features,
     required this.appName,
+    required this.headingText,
     required this.buttonColor,
+    required this.buttonText,
   }) : super(key: key);
 
   /// list of whats new features
@@ -19,6 +21,12 @@ class WhatsNewFeaturePage extends StatelessWidget {
 
   /// accent button color
   final Color? buttonColor;
+
+  /// Text in Continue Button
+  final String buttonText;
+
+  /// Heading text above the new features like "Whats's new in ..."
+  final String headingText;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +40,7 @@ class WhatsNewFeaturePage extends StatelessWidget {
             right: 0,
             bottom: 0,
             child: ContinueButton(
+              buttonText: buttonText,
               accentColor: buttonColor,
               onTap: () {
                 Navigator.of(context).pop();
@@ -52,7 +61,7 @@ class WhatsNewFeaturePage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            "What's new in $appName",
+            headingText,
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.white,

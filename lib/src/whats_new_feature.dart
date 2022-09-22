@@ -69,6 +69,8 @@ class WhatsNewFeature {
       MaterialPageRoute(
         builder: (context) => WhatsNewFeaturePage(
           buttonColor: buttonColor,
+          buttonText: 'Continue',
+          headingText: 'Whats new',
           features: features,
           appName: appName,
         ),
