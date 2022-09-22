@@ -45,6 +45,7 @@ class WhatsNewFeature {
 
     if (currentAppVersion != previousAppVersion) {
       await prefs.setString(installedAppVersionKey, currentAppVersion);
+      print("App-Version: " + currentAppVersion);
       navigatedToWhatsNewPage?.call();
       Future.delayed(delay, () {
         _navigateToWhatsNewPage(
