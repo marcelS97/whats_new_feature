@@ -31,14 +31,14 @@ class WhatsNewFeature {
 
     final prefs = await SharedPreferences.getInstance();
 
-    final currentAppVersion = packageInfo.version;
+    final currentAppVersion = packageInfo.buildNumber;
 
     final previousAppVersion = prefs.getString(installedAppVersionKey) ?? '';
 
     /// do not show whats new feature page on the first install
     ///
     /// on the first install, [previousAppVersion] will always be empty
-    if (previousAppVersion.isEmpty && showWhatsNewOnFirstInstall == false) {
+    if (previousAppVersion.isEmpty) {
       await prefs.setString(installedAppVersionKey, currentAppVersion);
       return;
     }
