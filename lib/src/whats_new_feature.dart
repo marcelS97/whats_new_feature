@@ -22,6 +22,7 @@ class WhatsNewFeature {
     required List<WhatsNewFeatureTile> features,
     required String headingText,
     required String buttonText,
+    bool useBuildNumber = false,
     bool showWhatsNewOnFirstInstall = false,
     Color buttonColor = Colors.amber,
     Color buttonTextColor = Colors.black,
@@ -34,7 +35,13 @@ class WhatsNewFeature {
 
     final prefs = await SharedPreferences.getInstance();
 
-    final currentAppVersion = packageInfo.buildNumber;
+    var currentAppVersion = '';
+
+    if(useBuildNumber) {
+      currentAppVersion = packageInfo.buildNumber;
+    } else {
+      currentAppVersion = packageInfo.version;
+    }
 
     final previousAppVersion = prefs.getString(installedAppVersionKey) ?? '';
 
