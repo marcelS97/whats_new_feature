@@ -1,16 +1,16 @@
 name: whats_new_feature
 description: Show whats new feature in the latest update
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/walid-ashik/whats_new_feature
 maintainer: Walid Ashik(@walidashik)
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  package_info_plus: ^1.4.2
+  package_info_plus: ^4.0.2
   shared_preferences: ^2.0.15
 
 dev_dependencies:
